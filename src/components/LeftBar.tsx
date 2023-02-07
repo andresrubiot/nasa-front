@@ -7,12 +7,29 @@ import Divider from '@mui/material/Divider';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
 import BlurOnIcon from '@mui/icons-material/BlurOn';
+import { NavLink } from 'react-router-dom';
 
 const drawerWidth = 240;
 
-const menuList = ['Home', 'APOD', 'Rover', 'Import Users'];
+const links = [
+    {
+        name: 'Home',
+        href: '/'
+    },
+    {
+        name: 'APOD',
+        href: '/apod'
+    },
+    {
+        name: 'Rover',
+        href: '/rover'
+    },
+    {
+        name: 'Import users',
+        href: '/import'
+    }
+]
 
 export default function LeftBar() {
     return (
@@ -34,13 +51,18 @@ export default function LeftBar() {
                 <Divider />
 
                 <List>
-                    {menuList.map((text, index) => (
-                        <ListItem key={text} disablePadding>
+                    {links.map((link) => (
+                        <ListItem key={link.name} disablePadding>
                             <ListItemButton>
                                 <ListItemIcon>
                                     <BlurOnIcon />
                                 </ListItemIcon>
-                                <ListItemText primary={text} />
+                                <NavLink 
+                                    to={link.href}
+                                    className={({ isActive }) => isActive ? 'active' : undefined }
+                                >
+                                    {link.name}
+                                </NavLink>
                             </ListItemButton>
                         </ListItem>
                     ))}
