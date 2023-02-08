@@ -3,14 +3,6 @@ import Grid from '@mui/material/Grid';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemText from '@mui/material/ListItemText';
-import ListItemAvatar from '@mui/material/ListItemAvatar';
-import Avatar from '@mui/material/Avatar';
-import EventIcon from '@mui/icons-material/Event';
-import CameraIcon from '@mui/icons-material/CameraAlt';
-import CodeIcon from '@mui/icons-material/QrCode';
 import axios from 'axios'
 import Typography from '@mui/material/Typography';
 
@@ -23,22 +15,19 @@ const Apod = () => {
     const getApod = async (date: string) => {
         const response = await axios.get(`${endpoint}/apod/${date}`)
         setApod([response.data.data])
-        console.log([response.data.data])
     }
 
     useEffect( () => {
-        getApod('2023-01-01')
+        const today = new Date();
+
+        let day = today.getDate();
+        let month = today.getMonth() + 1;
+        let year = today.getFullYear();
+        
+        getApod(`${year}-${month}-${day}`)
     }, [])
 
     return (
-        // <div>
-        //     { apod.map((apd, index) => (
-        //         <div key={index}>
-        //             { apd.date }
-        //             hola
-        //         </div>
-        //     ))}
-        // </div>
         <Grid container>
             { apod.map((apd) => (
                 <Grid item xs={12} key={apd.date}>

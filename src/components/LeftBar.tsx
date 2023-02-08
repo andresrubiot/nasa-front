@@ -12,6 +12,14 @@ import { NavLink } from 'react-router-dom';
 
 const drawerWidth = 240;
 
+const today = new Date();
+
+        let day = today.getDate();
+        let month = today.getMonth() + 1;
+        let year = today.getFullYear();
+        
+        let now = (`${year}-${month}-${day}`)
+
 const links = [
     {
         name: 'Home',
@@ -19,11 +27,11 @@ const links = [
     },
     {
         name: 'APOD',
-        href: '/apod/2023-01-01'
+        href: '/apod/' + now,
     },
     {
         name: 'Rover',
-        href: '/rover/2021-01-01'
+        href: '/rover/' + now,
     },
     {
         name: 'Import users',
