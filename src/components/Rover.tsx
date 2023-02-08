@@ -11,7 +11,7 @@ import Avatar from '@mui/material/Avatar';
 import EventIcon from '@mui/icons-material/Event';
 import CameraIcon from '@mui/icons-material/CameraAlt';
 import CodeIcon from '@mui/icons-material/QrCode';
-import axios from 'axios'
+import axios from 'axios';
 
 const endpoint = 'http://127.0.0.1:8000/api'
 
@@ -25,7 +25,13 @@ const Rover = () => {
     }
 
     useEffect( () => {
-        getRover('2023-01-01')
+        const today = new Date();
+
+        let day = String(today.getDate() - 2).padStart(2, '0');
+        let month = String(today.getMonth() + 1).padStart(2, '0');
+        let year = today.getFullYear();
+        
+        getRover(`${year}-${month}-${day}`)
     }, [])
 
 
