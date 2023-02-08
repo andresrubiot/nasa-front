@@ -19,6 +19,7 @@ const today = new Date();
         let year = today.getFullYear();
         
         let now = (`${year}-${month}-${day}`)
+        let roverDay = (`${year}-${month}-${day - 2}`)
 
 const links = [
     {
@@ -31,7 +32,7 @@ const links = [
     },
     {
         name: 'Rover',
-        href: '/rover/' + now,
+        href: '/rover/' + roverDay,
     },
     {
         name: 'Import users',
