@@ -5,7 +5,6 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import SendIcon from '@mui/icons-material/Send';
 import { useState } from 'react';
-import axios from 'axios';
 import Tooltip from '@mui/material/Tooltip';
 
 const endpoint = 'http://127.0.0.1:8000/api'
