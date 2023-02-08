@@ -12,7 +12,7 @@ import Import from './components/Import';
 
 function App() {
     return (
-        <Container maxWidth="lg">
+        <Container maxWidth="xl">
             <BrowserRouter>
                 <Box sx={{ display: 'flex' }}>
                 
@@ -29,8 +29,8 @@ function App() {
 
                         <Routes>
                             <Route path='/' element={<Home />} />
-                            <Route path='/apod' element={<Apod />} />
-                            <Route path='/rover' element={<Rover />} />
+                            <Route path='/apod/:date' element={<Apod />} />
+                            <Route path='/rover/:date' element={<Rover />} />
                             <Route path='/import' element={<Import />} />
                         </Routes>
 

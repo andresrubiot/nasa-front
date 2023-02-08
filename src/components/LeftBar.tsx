@@ -19,11 +19,11 @@ const links = [
     },
     {
         name: 'APOD',
-        href: '/apod'
+        href: '/apod/2023-01-01'
     },
     {
         name: 'Rover',
-        href: '/rover'
+        href: '/rover/2021-01-01'
     },
     {
         name: 'Import users',
